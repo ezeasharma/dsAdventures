@@ -89,7 +89,17 @@ var binaryHeap = function(){
         lastIndex--;
         sinkDown(startIndex);
         return topElement;
-    }
+    };
+    
+    this.heapSort = function(){
+      var result = [];
+      while(lastIndex >= startIndex )
+      {
+          var maxItem = this.pop();
+          result.push(maxItem)
+      }
+      return result;
+    };
 };
 
 
