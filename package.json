@@ -1,0 +1,29 @@
+{
+  "name": "datastructures",
+  "version": "1.0.0",
+  "description": "adventures in datastructure world.",
+  "main": "app.js",
+  "config": {
+    "blanket": {
+      "pattern": [""],
+      "data-cover-never": [
+        "node_modules",
+        "test",
+        "typings"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezeasharma/dsAdventures.git"
+  },
+  "author": "Ashish Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezeasharma/dsAdventures/issues"
+  },
+  "homepage": "https://github.com/ezeasharma/dsAdventures#readme"
+}
