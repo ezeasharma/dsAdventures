@@ -1,9 +1,10 @@
 var chai = require('chai');
 var expect = chai.expect;
+var assert = chai.assert;
 var BinaryHeap = require('./../binary-heap')
 
 describe('binary-heap', function(){
-   describe('Creates heap by calling insert', function(){
+   describe('datastructure', function(){
        var bHeap = new BinaryHeap();
        it('Size is zero when initialized', function(){
            expect(bHeap.itemCount()).to.equal(0);     
@@ -24,6 +25,18 @@ describe('binary-heap', function(){
            expect(bHeap.pop()).to.equal(1);
            expect(bHeap.itemCount()).to.equal(0);
        }); 
+       
+       it('pop throws exception if heap is empty', function(){
+           try
+           {
+                bHeap.pop()
+                assert.fail();   
+           }
+           catch(e){
+               assert.ok("caught exception");
+           }
+           
+       });
        
        it('heapSort returns the sorted array set', function(){
            expect(bHeap.itemCount()).to.equal(0);
