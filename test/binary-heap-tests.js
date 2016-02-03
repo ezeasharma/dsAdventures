@@ -16,6 +16,13 @@ describe('binary-heap', function(){
            expect(bHeap.itemCount()).to.equal(2);
            bHeap.insert(3);
            expect(bHeap.itemCount()).to.equal(3);     
+       });
+       
+       it('Deletes max item from top', function(){
+           expect(bHeap.pop()).to.equal(3);
+           expect(bHeap.pop()).to.equal(2);
+           expect(bHeap.pop()).to.equal(1);
+           expect(bHeap.itemCount()).to.equal(0);
        })
        
    }) 

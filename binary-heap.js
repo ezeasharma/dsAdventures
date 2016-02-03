@@ -79,12 +79,7 @@ var binaryHeap = function(){
     
     this.itemCount = function(){
         return lastIndex;
-    };
-    
-    this.print = function(){
-        for(var i = startIndex; i <= lastIndex; i++)
-            console.log(cache[i]);
-    };
+    };   
     
     this.pop = function(){
         if(lastIndex < startIndex)
