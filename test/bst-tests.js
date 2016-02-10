@@ -23,7 +23,13 @@ describe('BST', function(){
             bst.put(4, 4);
             bst.put(2, 2);
             expect(bst.count()).to.be.equal(5);
+            
         });
+        
+        it('updates the value if key is alreay present', function () {
+            bst.put(2, 2);  //Updates the value
+            expect(bst.count()).to.be.equal(5);
+        })
     });
     
     describe('getValue',function() {
