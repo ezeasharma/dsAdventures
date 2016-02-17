@@ -67,4 +67,79 @@ describe('BST', function(){
             }
         });
     });
+    
+    describe('min', function() {
+        it('returns the minimum element', function () {
+            var bst = new BST();
+            bst.put(1, 1);
+            bst.put(5, 5);
+            bst.put(3, 3);
+            bst.put(4, 4);
+            bst.put(2, 2);
+            expect(bst.min()).to.be.equal(1);
+        });
+    });
+    
+    describe('min', function() {
+        it('returns the minimum element', function () {
+            var bst = new BST();
+            bst.put(1, 1);
+            bst.put(5, 5);
+            bst.put(3, 3);
+            bst.put(4, 4);
+            bst.put(2, 2);
+            expect(bst.max()).to.be.equal(5);
+            bst.put(100, 100);
+            expect(bst.max()).to.be.equal(100);
+        });
+    });
+    
+    describe('floor', function() {
+        it('returns the minimum element greater than or equal to key', function () {
+            var bst = new BST();
+            bst.put(1, 1);
+            bst.put(5, 5);
+            bst.put(3, 3);
+            bst.put(2, 2);
+            expect(bst.floor(4)).to.be.equal(3);
+            expect(bst.floor(6)).to.be.equal(5);
+            bst.put(100, 100);
+            expect(bst.floor(100)).to.be.equal(100);
+            expect(bst.floor(101)).to.be.equal(100);
+        });
+    });
+    
+    describe('deleteMin', function() {
+        it('removes the min key node', function () {
+            var bst = new BST();
+            bst.put(1, 1);
+            bst.put(5, 5);
+            bst.put(3, 3);
+            bst.put(2, 2);
+            bst.put(100, 100);
+            expect(bst.count()).to.be.equal(5);
+            bst.deleteMin();
+            bst.deleteMin();
+            expect(bst.count()).to.be.equal(3);            
+        });
+    });
+    
+    describe('delete', function() {
+        it('deletes the element with given key', function () {
+            var bst = new BST();
+            bst.put(2, 2);
+            bst.put(1, 1);
+            bst.put(3, 3);
+            bst.put(4, 4);
+            bst.put(100, 100);
+            expect(bst.count()).to.be.equal(5);
+            bst.delete(4);
+            bst.delete(100);
+            expect(bst.count()).to.be.equal(3);
+            bst.delete(100);            
+            expect(bst.count()).to.be.equal(3);
+        });
+    });
+    
+    
 });

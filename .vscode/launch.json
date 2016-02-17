@@ -7,24 +7,14 @@
 			"request": "launch",
 			"program": "node_modules/mocha/bin/mocha",
 			"stopOnEntry": false,
-			"args": ["test"],
-			"cwd": ".",
+			"args": ["test/bst-tests.js"],
+			
 			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
+			
 			"env": {
 				"NODE_ENV": "development"
-			},
-			"externalConsole": false,
-			"sourceMaps": false,
-			"outDir": null
-		},
-		{
-			"name": "Attach",
-			"type": "node",
-			"request": "attach",
-			"port": 5858
+			}
+			
 		}
 	]
 }

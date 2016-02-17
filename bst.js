@@ -58,6 +58,99 @@ var bst = function(){
         };
         throw "Key not found";
     };
+    
+    this.floor = function(key) {
+        var result = getFloor(this.root, key);
+        if(result == null)
+            return null;
+         return result.key;
+    }
+    //highest value which is less than the key
+    var getFloor = function(node, key){
+        if(node == null)
+            return null;
+        if(node.key == key)
+            return node;
+        if(node.key > key)
+            return getFloor(node.leftNode, key);
+        var t = getFloor(node.rightNode, key);
+        if(t != null)
+            return t;
+        return node;
+    }
+    
+    this.max = function () {
+        var result =  getMax(this.root);
+        if(result == null)
+            return result;
+        return result.key;
+    }
+    
+    var getMax = function(node){
+        var start = node;
+        if(start == null)
+            return null;
+        while(start.rightNode != null)
+            start = start.rightNode;
+        return start;
+    }
+    
+    this.min = function () {
+        var result =  getMin(this.root);
+        if(result == null)
+            return result;
+        return result.key;
+    }
+    
+    var getMin = function(node){
+        var start = node;
+        if(start == null)
+            return null;
+        while(start.leftNode != null)
+            start = start.leftNode
+        return start;
+    }
+    
+    
+    
+    this.deleteMin = function(){
+        this.root = deleteMinNode(this.root);
+    }   
+    
+    var deleteMinNode = function(node) {        
+        if(node == null)
+            return null;
+        if(node.leftNode == null){
+            return node.rightNode;
+        }
+        node.leftNode = deleteMinNode(node.leftNode);
+        return node;
+    }
+    
+    this.delete = function(key){
+        this.root = deleteNode(this.root, key)
+    }
+    
+    var deleteNode = function(node, key){
+        if(node == null)
+            return null;
+        if(node.key < key)
+            node.rightNode = deleteNode(node.rightNode, key);
+        else if(node.key > key)
+            node.leftNode = deleteNode(node.leftNode, key);
+        else{
+            if(node.leftNode == null)
+                return node.rightNode;
+            if(node.rightNode == null)
+                return node.leftNode;             
+            
+            var nextMin = getMin(node.rightNode);
+            nextMin.leftNode = node.leftNode;
+            nextMin.rightNode = deleteMinNode(node.rightNode);
+            return nextMin;
+        }
+        return node;
+    }
 };
 
 var Node = function(key, value){
